@@ -51,7 +51,45 @@
         memoized()
 ```
 
+### fib() dynamic approach
 ```
+fxn fib(n){
+    if (n < 2) {
+        return n
+    }
+    return fib(n-1) + fib(n-2)
+}
+
+=> Above fxn is not very efficient; we can use dynamic approach to increase efficiency => less calculations
+
+Dynamic Programming => Divide & Conquer + Memoization
+
+Steps:
+1. Can it be divided into subproblems
+2. Find recursive solution
+3. Are there repetitive subproblems
+4. Memoize subproblems
+
+=> Approach fib() with above steps
+
+fxn memoizedFib() {
+    let cache = {};
+    return fxn fib(n) {
+        if (n in cache) {
+            return cache[n];
+        } else {
+            if (n < 2) {
+                return n;
+            } else {
+                cache[n] = fib(n - 1) + fib(n - 2)
+                return cache[n];
+            }
+        }
+    }
+}
+
+// decreased time complexity to O(n); increased space complexity as a trade-off;
+
 ```
 
 ```
