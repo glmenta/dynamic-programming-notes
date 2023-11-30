@@ -15,7 +15,7 @@
 
         addTo80(5), addTo80(10).... etc.
 
-        We can use memoization and cache
+        We can use memoization and cache:
         let cache = {};
         fxn memoizedAddTo80(n) {
             if (n in cache) {
@@ -31,6 +31,24 @@
 
         memoization => caching the return value of fxn based on its parameters
             => if parameter does not change, then it is "memoized" b/c it uses the cache we used before
+            => remember a solution for a sub-problem
+
+        We can use closures to avoid global scope issues:
+
+        fxn memoizedAddTo80(n) {
+            let cache = {};
+            return fxn(n) {
+                if (n in cache) {
+                    return cache[n];
+                } else {
+                    cache[n] = n + 80;
+                    return cache[n]
+                }
+            }
+        }
+
+        const memoized = memoizedAddTo80();
+        memoized()
 ```
 
 ```
