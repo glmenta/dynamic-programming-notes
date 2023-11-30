@@ -90,13 +90,16 @@ fxn memoizedFib() {
 
 // decreased time complexity to O(n); increased space complexity as a trade-off;
 
-```
+=> Bottom-up Approach:
+    => Avoids recursion
+    => starts from simplest solution and goes up towards complex solution;
 
-```
-```
-
-```
-```
-
-```
+fxn fib(n) {
+    // pre-fill with 0 and 1 b/c those are our initial for our fib seq.
+    let ans = [0,1];
+    for (let i = 2; i <= n; i++) {
+        ans.push(ans[i - 2] + ans[i - 1])
+    }
+    return ans.pop();
+}
 ```
